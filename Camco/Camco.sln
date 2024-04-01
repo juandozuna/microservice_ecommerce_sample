@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{4D29F833-AD50-4FE1-A7D0-83CB42714591}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{ECB350D6-24DC-4041-85DC-231812A2D13D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{5750F3E6-A8A5-4758-B1D6-A5B27E2E824E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AE15C6AD-D361-48DC-8F74-EB1253FBD806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camco.Services.CouponAPI", "Camco.Services.CouponAPI\Camco.Services.CouponAPI.csproj", "{33C18A74-D0DD-4738-B31D-A07E639C9743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33C18A74-D0DD-4738-B31D-A07E639C9743} = {AE15C6AD-D361-48DC-8F74-EB1253FBD806}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33C18A74-D0DD-4738-B31D-A07E639C9743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C18A74-D0DD-4738-B31D-A07E639C9743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C18A74-D0DD-4738-B31D-A07E639C9743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C18A74-D0DD-4738-B31D-A07E639C9743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

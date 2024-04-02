@@ -23,5 +23,20 @@ namespace Camco.Services.CouponAPI.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpGet]
+        [Route("{id:int}")]
+        public object? Get(int id)
+        {
+            try
+            {
+                Coupon? obj = _db.Coupons.Find(id);
+                return obj;
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

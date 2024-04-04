@@ -1,41 +1,43 @@
+using AutoMapper;
 using Camco.Services.CouponAPI.Data;
 using Camco.Services.CouponAPI.Models;
+using Camco.Services.CouponAPI.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Camco.Services.CouponAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CouponController(AppDbContext db) : ControllerBase
+    public class CouponController(AppDbContext db, IMapper mapper) : ControllerBase
     {
-        private readonly AppDbContext _db = db;
-        
         [HttpGet]
-        public object Get()
+        public ResponseDto<IEnumerable<CouponDto>> Get()
         {
             try
             {
-                IEnumerable<Coupon> objList = _db.Coupons.ToList();
-                return objList;
+                IEnumerable<Coupon> objList = db.Coupons.ToList();
+                var mapped = mapper.Map<IEnumerable<CouponDto>>(objList);
+                return new ResponseDto<IEnumerable<CouponDto>> { Data = mapped };
             }
             catch (Exception e)
             {
-                return StatusCode(500, e.Message);
+                return new ResponseDto<IEnumerable<CouponDto>> { IsSuccess = false, Message = e.Message };
             }
         }
         
         [HttpGet]
         [Route("{id:int}")]
-        public object? Get(int id)
+        public ResponseDto<CouponDto?> Get(int id)
         {
             try
             {
-                Coupon? obj = _db.Coupons.Find(id);
-                return obj;
+                Coupon? obj = db.Coupons.Find(id);
+                var mapped = mapper.Map<CouponDto?>(obj);
+                return new ResponseDto<CouponDto?> { Data = mapped };
             }
             catch (Exception e)
             {
-                return StatusCode(500, e.Message);
+                return new ResponseDto<CouponDto?> { IsSuccess = false, Message = e.Message };
             }
         }
     }
